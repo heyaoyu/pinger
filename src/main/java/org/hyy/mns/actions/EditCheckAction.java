@@ -28,6 +28,7 @@ public class EditCheckAction extends ActionSupport {
 		thisCheck.setFrequency(frequencyNum);
 		thisCheck.setTimesLimit(limitNum);
 		if (needMonitor != null) {
+			thisCheck.setNeedMonitor(true);
 			CheckJobManager.newInstance().rescheduleMonitorJob(thisCheck);
 			user.getUrlChecks().remove(thisCheck);
 			user.getUrlChecks().add(thisCheck);

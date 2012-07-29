@@ -36,7 +36,6 @@
 				
 				#foreach($check in $user.urlChecks)
 				<div id="checkDetail">
-					$check.isNeedMonitor()
 					<div class="colOne">
 						<p><strong>Check</strong></p>
 						<p><strong>Host</strong></p>
