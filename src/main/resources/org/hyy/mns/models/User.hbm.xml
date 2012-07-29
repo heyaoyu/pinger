@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "hibernate-mapping-3.0.dtd">
+<!-- "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd" -->
+<hibernate-mapping package="org.hyy.mns.models">
+
+	<class name="User" table="User">
+		<id name="uid" column="uID">
+            <generator class="native"/>
+        </id>
+        <property name="username"/>
+        <property name="password"/>
+        <property name="email"/>
+        <set name="urlChecks" table="UrlCheck" lazy="false">
+        	<key column="uID"/>
+        	<one-to-many class="Check"/>
+        </set>
+	</class>
+
+</hibernate-mapping>

@@ -1,0 +1,35 @@
+<!DOCTYPE xwork PUBLIC "-//OpenSymphony Group//XWork 1.0//EN" "http://www.opensymphony.com/xwork/xwork-1.0.dtd">
+<xwork>
+<include file="webwork-default.xml" />
+<package name="example" extends="webwork-default">
+	<interceptors>
+		<interceptor name="authenticator" class="org.hyy.mns.interceptors.AuthenticateInteceptor"/>
+	</interceptors>
+	<global-results>
+		<result name="login">/login.jsp</result>
+	</global-results>
+    <action name="loginhandle" class="org.hyy.mns.actions.LoginAction">
+        <result name="success" type="redirect">home.action</result>
+        <result name="error" type="velocity">vm/error.vm</result>
+    </action>
+    <action name="logouthandle" class="org.hyy.mns.actions.LogoutAction">
+        <result name="success">login.jsp</result>
+    </action>
+    <action name="home" class="org.hyy.mns.actions.HomeAction">
+    	<result name="success" type="velocity">vm/home.vm</result>
+    	<interceptor-ref name="authenticator"/>
+    </action>
+    <action name="addCheck" class="org.hyy.mns.actions.AddCheckAction">
+    	<result name="success" type="redirect">home.action</result>
+    	<interceptor-ref name="authenticator"/>
+    </action>
+    <action name="showCheck" class="org.hyy.mns.actions.ShowCheckAction">
+    	<result name="success" type="velocity">vm/check.vm</result>
+    	<interceptor-ref name="authenticator"/>
+    </action>
+    <action name="editCheck" class="org.hyy.mns.actions.EditCheckAction">
+    	<result name="success" type="redirect">home.action</result>
+    	<interceptor-ref name="authenticator"/>
+    </action>
+</package>
+</xwork>

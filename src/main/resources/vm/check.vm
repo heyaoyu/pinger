@@ -1,0 +1,64 @@
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="css/style.css"/>
+	</head>
+	<body id="main">
+		<div id="header">
+			<div id="logo">
+				<h1>Pinger<span>beta</span></h1>
+			</div>
+			<div id="nav">
+				<ul>
+					<li><a href="#">Dashboard</a></li>
+					<li><a href="#">Check</a></li>
+					<li><a href="#">Help</a></li>
+					<li><a href="logouthandle.action">Logout</a></li>
+				</ul>
+			</div>
+		</div>
+		<div id="middle">
+			<div id="left">
+				<div id="sideBar">
+					<ul>	
+						<li class="addC"><a href="addcheck.jsp">Add New Check</a></li>
+					</ul>
+				</div>
+				<div id="gettingStarted" class="box dark">
+    				<h3>Check Edit</h3>
+    				<p>On this page you can examine the uptime and downtime history of your checks, view your outages, etc.</p>
+				</div>
+			</div>
+			<div id="right">
+				<div class="rightTitle">
+					<h2>Check Edit</h2>
+				</div>
+				<div id="checkDetail">
+					<form method="post" action="editCheck.action">
+						Name: <input name="checkname" type="text" value="$check.name"/><br/>
+						URL: <input name="checkurl" type="text" value="$check.url"/><br/>
+						Frequency: 
+						<select name="checkFrequency" id="frequency">
+							<option value="1">1</option>
+							<option value="5">5</option>
+							<option value="10">10</option>
+							<option value="15">15</option>
+							<option value="30">30</option>
+							<option value="60">60</option>
+						</select> minutes<br/>
+						Notify when consecutively fail: <input name="checklimit" type="text" size="3" value="$check.timesLimit"/>times.<br/>
+						#if($check.isNeedMonitor())
+							<input name="needMonitor" type="checkbox" checked/>
+						#else
+							<input name="needMonitor" type="checkbox"/>
+						#end
+						<input name="checkId" type="hidden" value="$check.cid"/>
+						<input type="submit" value="edit"/>
+					</form>
+				</div>
+			</div>
+		</div>
+		<div id="footer">
+			<p>Designed by yunfeng.guo</p>
+		</div>
+	</body>
+</html>

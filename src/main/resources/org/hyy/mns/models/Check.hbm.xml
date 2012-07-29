@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "hibernate-mapping-3.0.dtd">
+<!-- "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd" -->
+<hibernate-mapping package="org.hyy.mns.models">
+
+	<class name="Check" table="UrlCheck">
+		<id name="cid" column="cID">
+            <generator class="native"/>
+        </id>
+        <many-to-one name="user" column="uID" class="User" lazy="false"/>
+        <property name="name"/>
+        <property name="url"/>
+        <property name="frequency" type="java.lang.Integer"/>
+        <property name="timesLimit" type="java.lang.Integer"/>
+        <property name="notifyWhenUp" type="java.lang.Boolean"/>
+        <property name="needMonitor" type="java.lang.Boolean"/>
+	</class>
+
+</hibernate-mapping>

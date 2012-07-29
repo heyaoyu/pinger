@@ -1,0 +1,88 @@
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="css/style.css"/>
+	</head>
+	<body id="main">
+		#set ($user=$req.getSession().getAttribute("LOGINUSER"))
+		<div id="header">
+			<div id="logo">
+				<h1>Pinger<span>beta</span></h1>
+			</div>
+			<div id="nav">
+				<ul>
+					<li><a href="#">Dashboard</a></li>
+					<li><a href="#">Check</a></li>
+					<li><a href="#">Help</a></li>
+					<li><a href="logouthandle.action">Logout</a></li>
+				</ul>
+			</div>
+		</div>
+		<div id="middle">
+			<div id="left">
+				<div id="sideBar">
+					<ul>	
+						<li class="addC"><a href="addcheck.jsp">Add New Check</a></li>
+					</ul>
+				</div>
+				<div id="gettingStarted" class="box dark">
+    				<h3>Check Report</h3>
+    				<p>On this page you can examine the uptime and downtime history of your checks, view your outages, etc.</p>
+				</div>
+			</div>
+			<div id="right">
+				<div class="rightTitle">
+					<h2>Checks Report</h2>
+				</div>
+				
+				#foreach($check in $user.urlChecks)
+				<div id="checkDetail">
+					$check.isNeedMonitor()
+					<div class="colOne">
+						<p><strong>Check</strong></p>
+						<p><strong>Host</strong></p>
+					</div>
+					<div class="colTwo">
+						<p>$check.name</p>
+						<p>$check.url</p>
+					</div>
+					<div class="colThree">
+						<p><strong>Resolution</strong></p>
+						<p><strong>TimesLimit</strong></p>
+					</div>
+					<div class="colFour">
+						<p>$check.frequency</p>
+						<p>$check.timesLimit</p>
+					</div>
+					<div class="colFive">
+						<a href="showCheck.action?cid=$check.cid">>>>Edit</a>
+					</div>
+					<div class="tableDetail">
+						<table>
+							<thead>
+								<tr>
+									<th id="day">day</th>
+									<th id="time">response</th>
+									<th id="state">state</th>
+								</tr>
+							</thead>
+							<tbody>
+							#foreach($result in $check.requestResults)
+								<tr>
+									<td>$result.ts</td>
+									<td>$result.responseTime</td>
+									<td>$!result.statusCode</td>
+								</tr>
+							#end
+							</tbody>
+						</table>
+					</div>
+				</div>
+				#end			
+			</div>
+			<div class="clear"></div>
+		</div>
+		<div id="footer">
+			<p>Designed by yunfeng.guo</p>
+		</div>
+	</body>
+</html>
