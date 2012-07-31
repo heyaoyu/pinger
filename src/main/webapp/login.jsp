@@ -1,6 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
+		<title>Pinger</title>
 		<link rel="stylesheet" type="text/css" href="css/style.css"/>
 		<script src="js/validate.js" type="text/javascript"></script>
 	</head>

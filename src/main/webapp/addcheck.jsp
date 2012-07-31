@@ -4,6 +4,7 @@
 <%@ page language="java" import="java.util.List"%>
 <html>
 	<head>
+		<title>Pinger</title>
 		<link rel="stylesheet" type="text/css" href="css/style.css"/>
 	</head>
 	<body id="main">
@@ -63,7 +64,9 @@
 			<div class="clear"></div>
 		</div>
 		<div id="footer">
-			<p>Designed by yunfeng.guo</p>
+			<h3>Contact us: </h3>
+			<p>yaoyu,he@thomsonreuters.com</p>
+			<p>yunfeng,guo@thomsonreuters.com</p>
 		</div>
 	</body>
 </html>
