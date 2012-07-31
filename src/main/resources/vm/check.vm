@@ -48,9 +48,9 @@
 						</select> minutes<br/>
 						Notify when consecutively fail: <input name="checklimit" type="text" size="3" value="$check.timesLimit"/>times.<br/>
 						#if($check.isNeedMonitor())
-							<input name="needMonitor" type="checkbox" checked/>
+							Need monitor?<input name="needMonitor" type="checkbox" checked/>
 						#else
-							<input name="needMonitor" type="checkbox"/>
+							Need monitor?<input name="needMonitor" type="checkbox"/>
 						#end
 						<input name="checkId" type="hidden" value="$check.cid"/>
 						<input type="submit" value="edit"/>
