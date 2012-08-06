@@ -18,12 +18,16 @@
 				</ul>
 			</div>
 		</div>
+		<div class="clear"></div>
 		<div id="middle">
 			<div id="left">
 				<div id="sideBar">
 					<ul>	
 						<li class="addC"><a href="addcheck.jsp">Add New Check</a></li>
 					</ul>
+				</div>
+				<div class="guide">
+					<p><span>G</span>uide</p>
 				</div>
 				<div id="gettingStarted" class="box dark">
     				<h3>Check Report</h3>
@@ -70,7 +74,11 @@
 								<tr>
 									<td>$result.ts</td>
 									<td>$result.responseTime</td>
-									<td>$!result.statusCode</td>
+									#if($result.responseTime == 0 )
+         								<td style="background-color:red;color:white;font-weight:bold;">$!result.statusCode</td>
+       								#else
+										<td style="background-color:green;color:white;font-weight:bold;">$!result.statusCode</td>
+									#end
 								</tr>
 							#end
 							</tbody>

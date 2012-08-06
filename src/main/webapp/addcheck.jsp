@@ -4,6 +4,13 @@
 <%@ page language="java" import="java.util.List"%>
 <html>
 	<head>
+		<script src="js/jquery.js" type="text/javascript"></script>
+		<script src="js/jquery.validate.js" type="text/javascript"></script>
+		<script type="text/javascript">
+						$(document).ready(function() {
+							$("#addCheckForm").validate();
+						});
+		</script>
 		<title>Pinger</title>
 		<link rel="stylesheet" type="text/css" href="css/style.css"/>
 	</head>
@@ -27,12 +34,16 @@
 				</ul>
 			</div>
 		</div>
+		<div class="clear"></div>
 		<div id="middle">
 			<div id="left">
 				<div id="sideBar">
 					<ul>	
 						<li class="addC"><a href="home.action">Back to Home</a></li>
 					</ul>
+				</div>
+				<div class="guide">
+					<p><span>G</span>uide</p>
 				</div>
 				<div id="gettingStarted" class="box dark">
     				<h3>Check Deploy</h3>
@@ -43,12 +54,12 @@
 				<div class="rightTitle">
 					<h2>Add Check</h2>
 				</div>
-				<div id="checkDetail">
-					<form method="post" action="addCheck.action">
-						Name: <input name="checkname" type="text"/><br/>
-						URL: <input name="checkurl" type="text"/><br/>
+				<div id="checkEditor">		
+					<form id="addCheckForm" class="checkForm" method="post" action="addCheck.action">				
+						Name: <input class="field" name="checkname" type="text" class="required"/><br/>
+						URL: <input class="field" name="checkurl" type="text" class="required"/><br/>
 						Frequency: 
-						<select name="checkFrequency">
+						<select class="field"  name="checkFrequency">
 							<option value="1">1</option>
 							<option value="5">5</option>
 							<option value="10">10</option>
@@ -56,8 +67,8 @@
 							<option value="30">30</option>
 							<option value="60">60</option>
 						</select> minutes<br/>
-						Notify when consecutively fail: <input name="checklimit" type="text" size="3"/>times.<br/>
-						<input type="submit" value="create"/>
+						Notify when consecutively fail: <input name="checklimit" type="text" size="3" class="field" />times.<br/>
+						<input class="create" type="submit" value="create"/>
 					</form>
 				</div>
 			</div>

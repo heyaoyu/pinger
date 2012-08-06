@@ -17,28 +17,32 @@
 				</ul>
 			</div>
 		</div>
+		<div class="clear"></div>
 		<div id="middle">
 			<div id="left">
 				<div id="sideBar">
 					<ul>	
-						<li class="addC"><a href="addcheck.jsp">Add New Check</a></li>
+						<li class="addC"><a href="home.action">Back to Home</a></li>
 					</ul>
+				</div>
+				<div class="guide">
+					<p><span>G</span>uide</p>
 				</div>
 				<div id="gettingStarted" class="box dark">
     				<h3>Check Edit</h3>
-    				<p>On this page you can examine the uptime and downtime history of your checks, view your outages, etc.</p>
+    				<p>On this page you can edit the property of the check you have deployed , such as frequency and whether you need to keep monitoring it.</p>
 				</div>
 			</div>
 			<div id="right">
 				<div class="rightTitle">
 					<h2>Check Edit</h2>
 				</div>
-				<div id="checkDetail">
-					<form method="post" action="editCheck.action">
-						Name: <input name="checkname" type="text" value="$check.name"/><br/>
-						URL: <input name="checkurl" type="text" value="$check.url"/><br/>
+				<div id="checkEditor">
+					<form class="checkForm" method="post" action="editCheck.action">
+						Name: <input class="field" name="checkname" type="text" value="$check.name"/><br/>
+						URL: <input class="field" name="checkurl" type="text" value="$check.url"/><br/>
 						Frequency: 
-						<select name="checkFrequency" id="frequency">
+						<select class="field"  name="checkFrequency" id="frequency">
 							<option value="1">1</option>
 							<option value="5">5</option>
 							<option value="10">10</option>
@@ -46,17 +50,19 @@
 							<option value="30">30</option>
 							<option value="60">60</option>
 						</select> minutes<br/>
-						Notify when consecutively fail: <input name="checklimit" type="text" size="3" value="$check.timesLimit"/>times.<br/>
-						#if($check.isNeedMonitor())
-							Need monitor?<input name="needMonitor" type="checkbox" checked/>
+						Notify when consecutively fail: <input class="field"  name="checklimit" type="text" size="3" value="$check.timesLimit"/>times.<br/>
+						#if($check.needMonitor)
+							need monitor?<input name="needMonitor" class="field"  type="checkbox" checked/>
 						#else
-							Need monitor?<input name="needMonitor" type="checkbox"/>
+							need monitor?<input name="needMonitor" class="field"  type="checkbox"/>
 						#end
-						<input name="checkId" type="hidden" value="$check.cid"/>
-						<input type="submit" value="edit"/>
+						<input class="field"  name="checkId" type="hidden" value="$check.cid"/><br>
+						<input class="create"  type="submit" value="edit"/>
 					</form>
 				</div>
 			</div>
+		</div>
+		<div class="clear"></div>
 		</div>
 		<div id="footer">
 			<h3>Contact us: </h3>
