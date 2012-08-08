@@ -5,14 +5,14 @@
 		<link rel="stylesheet" type="text/css" href="css/style.css"/>
 		<script src="js/validate.js" type="text/javascript"></script>
 	</head>
-	<body>
+	<body id="loginBody">
 		<div id="login">
 			<div class="drops"></div>
 			<form action="loginhandle.action" name="login" onsubmit="return validate()">
 				<h1>Welcome Pinger</h1>
 				<fieldset id="inputs">
-					<input id="username" name="username" type="text" placeholder="Username" required>   
-					<input id="password" name="password" type="password" placeholder="Password" required>
+					<input id="username" name="username" type="text" autocomplete="off" required="required">   
+					<input id="password" name="password" type="password" autocomplete="off" required="required">
 				</fieldset>
 				<div id="tip"></div>
 				<fieldset id="actions">
