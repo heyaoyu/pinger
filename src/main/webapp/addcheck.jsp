@@ -4,13 +4,14 @@
 <%@ page language="java" import="java.util.List"%>
 <html>
 	<head>
-		<script src="js/jquery.js" type="text/javascript"></script>
-		<script src="js/jquery.validate.js" type="text/javascript"></script>
-		<script type="text/javascript">
-						$(document).ready(function() {
-							$("#addCheckForm").validate();
-						});
-		</script>
+		<script type="text/javascript" src="js/jquery.js"></script>
+  		<script type="text/javascript" src="js/jquery.validate.js"></script>
+  		<script type="text/javascript" src="js/messages.js"></script>
+		<script>
+    		$(document).ready(function(){
+      			$("#addCheckForm").validate();
+    		});
+  		</script>
 		<title>Pinger</title>
 		<link rel="stylesheet" type="text/css" href="css/style.css"/>
 	</head>
@@ -56,8 +57,8 @@
 				</div>
 				<div id="checkEditor">		
 					<form id="addCheckForm" class="checkForm" method="post" action="addCheck.action">				
-						Name: <input class="field" name="checkname" type="text" class="required"/><br/>
-						URL: <input class="field" name="checkurl" type="text" class="required"/><br/>
+						Name: <input class="field required" name="checkname" type="text"/><br/>
+						URL: <input class="field required" name="checkurl" type="text"/><br/>
 						Frequency: 
 						<select class="field"  name="checkFrequency">
 							<option value="1">1</option>

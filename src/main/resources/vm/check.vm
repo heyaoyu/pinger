@@ -2,6 +2,14 @@
 	<head>
 		<title>Pinger</title>
 		<link rel="stylesheet" type="text/css" href="css/style.css"/>
+		<script type="text/javascript" src="js/jquery.js"></script>
+  		<script type="text/javascript" src="js/jquery.validate.js"></script>
+  		<script type="text/javascript" src="js/messages.js"></script>
+  		<script>
+    		$(document).ready(function(){
+      			$("#editCheckForm").validate();
+    		});
+  		</script>
 	</head>
 	<body id="main">
 		<div id="header">
@@ -38,9 +46,9 @@
 					<h2>Check Edit</h2>
 				</div>
 				<div id="checkEditor">
-					<form class="checkForm" method="post" action="editCheck.action">
-						Name: <input class="field" name="checkname" type="text" value="$check.name"/><br/>
-						URL: <input class="field" name="checkurl" type="text" value="$check.url"/><br/>
+					<form id="editCheckForm" class="checkForm" method="post" action="editCheck.action">
+						Name: <input class="field required" name="checkname" type="text" value="$check.name"/><br/>
+						URL: <input class="field required" name="checkurl" type="text" value="$check.url"/><br/>
 						Frequency: 
 						<select class="field"  name="checkFrequency" id="frequency">
 							<option value="1">1</option>
