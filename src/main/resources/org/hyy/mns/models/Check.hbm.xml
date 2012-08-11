@@ -16,6 +16,10 @@
         <property name="timesLimit" type="java.lang.Integer"/>
         <property name="notifyWhenUp" type="java.lang.Boolean"/>
         <property name="needMonitor" type="java.lang.Boolean"/>
+        <set name="notifies" table="CheckNotifies" lazy="false">
+        	<key column="checkId"/>
+        	<element column="notify" type="string"/>
+        </set>
 	</class>
 
 </hibernate-mapping>

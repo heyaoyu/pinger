@@ -1,5 +1,7 @@
 package org.hyy.mains;
 
+import java.util.Set;
+
 import org.hyy.mns.daos.CheckDAO;
 import org.hyy.mns.daos.UserDAO;
 import org.hyy.mns.models.Check;
@@ -8,19 +10,24 @@ import org.hyy.mns.models.User;
 public class DBTestDataCreation {
 	
 	public static void main(String[] args) throws InterruptedException {
-		User user = new User();
-		user.setUsername("guest");
-		user.setPassword("guest");
-		user.setEmail("heyaoyu@gmail.com");
-		UserDAO.newInstance().saveUser(user);
-		Check check = new Check();
-		check.setFrequency(1);
-		check.setName("baidu");
-		check.setNotifyWhenUp(true);
-		check.setTimesLimit(3);
-		check.setUrl("http://baidu.com/");
-		check.setUser(user);
-		CheckDAO.newInstance().saveCheck(check);
+//		User user = new User();
+//		user.setUsername("guest");
+//		user.setPassword("guest");
+//		user.setEmail("heyaoyu@gmail.com");
+//		UserDAO.newInstance().saveUser(user);
+//		Check check = new Check();
+//		check.setFrequency(1);
+//		check.setName("baidu");
+//		check.setNotifyWhenUp(true);
+//		check.setTimesLimit(3);
+//		check.setUrl("http://baidu.com/");
+//		check.setUser(user);
+//		CheckDAO.newInstance().saveCheck(check);
+		User guest = UserDAO.newInstance().getUser("guest", "guest");
+		Set<Check> checks = UserDAO.newInstance().getChecks(guest);
+		Check check = (Check) checks.toArray()[0];
+		CheckDAO.newInstance().addNotify(check, "guoyunfeng@gmail.com");
+		CheckDAO.newInstance().deleteNotify(check, "guoyunfeng@gmail.com");
 //		User user2 = new User();
 //		user2.setUsername("nick.chen");
 //		user2.setPassword("pswd");

@@ -72,5 +72,27 @@ public class CheckDAO {
 			session.close();
 		return this.getCheck(check.getCid());
 	}
+	
+	public void addNotify(Check check, String notify){
+		Session session = sessionFac.getCurrentSession();
+		Transaction tx = session.beginTransaction();
+		check.getNotifies().add(notify);
+		session.save(check);
+		tx.commit();
+		if (session.isOpen())
+			session.close();
+	}
+	
+	public void deleteNotify(Check check, String notify){
+		Session session = sessionFac.getCurrentSession();
+		Transaction tx = session.beginTransaction();
+		if(check.getNotifies().contains(notify)){
+			check.getNotifies().remove(notify);
+			session.save(check);
+		}
+		tx.commit();
+		if (session.isOpen())
+			session.close();
+	}
 
 }

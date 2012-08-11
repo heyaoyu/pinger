@@ -1,6 +1,7 @@
 package org.hyy.mns.models;
 
 import java.util.List;
+import java.util.Set;
 
 import org.hyy.mns.daos.RRDAO;
 
@@ -21,7 +22,14 @@ public class Check {
 	private int timesLimit;
 	private boolean notifyWhenUp=true;
 	private boolean needMonitor=true;
+	private Set<String> notifies;
 	
+	public Set<String> getNotifies() {
+		return notifies;
+	}
+	public void setNotifies(Set<String> notifies) {
+		this.notifies = notifies;
+	}
 	public long getCid() {
 		return cid;
 	}
