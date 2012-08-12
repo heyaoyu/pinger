@@ -1,5 +1,6 @@
 package org.hyy.mns.models;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -22,7 +23,7 @@ public class Check {
 	private int timesLimit;
 	private boolean notifyWhenUp=true;
 	private boolean needMonitor=true;
-	private Set<String> notifies;
+	private Set<String> notifies=new HashSet<String>();
 	
 	public Set<String> getNotifies() {
 		return notifies;

@@ -69,6 +69,7 @@
 							<option value="60">60</option>
 						</select> minutes<br/>
 						Notify when consecutively fail: <input name="checklimit" type="text" size="3" class="field" />times.<br/>
+						Other stakeholders: <input class="field" name="notifies" type="text"/><br/>
 						<input class="create" type="submit" value="create"/>
 					</form>
 				</div>

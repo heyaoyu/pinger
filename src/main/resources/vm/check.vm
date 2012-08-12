@@ -59,10 +59,11 @@
 							<option value="60">60</option>
 						</select> minutes<br/>
 						Notify when consecutively fail: <input class="field"  name="checklimit" type="text" size="3" value="$check.timesLimit"/>times.<br/>
+						Other stakeholders: <input class="field" name="notifies" value="#foreach($notify in $check.notifies) $notify; #end"/><br/>
 						#if($check.needMonitor)
-							need monitor?<input name="needMonitor" class="field"  type="checkbox" checked/>
+							need monitor?<input name="needMonitor" class="field"  type="checkbox" checked/><br/>
 						#else
-							need monitor?<input name="needMonitor" class="field"  type="checkbox"/>
+							need monitor?<input name="needMonitor" class="field"  type="checkbox"/><br/>
 						#end
 						<input class="field"  name="checkId" type="hidden" value="$check.cid"/><br>
 						<input class="create"  type="submit" value="edit"/>

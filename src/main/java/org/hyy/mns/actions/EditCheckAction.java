@@ -21,12 +21,25 @@ public class EditCheckAction extends ActionSupport {
 		int frequencyNum = Integer.parseInt(frequency);
 		String limit = ((String[]) ActionContext.getContext().getParameters().get("checklimit"))[0];
 		int limitNum = Integer.parseInt(limit);
+		String notifiesStr = ((String[])ActionContext.getContext().getParameters().get("notifies"))[0];
+		String[] notifies = notifiesStr.split(";");
 		Check thisCheck = CheckDAO.newInstance().getCheck(Long.parseLong(checkId));
 		thisCheck.setUser(user);
 		thisCheck.setName(checkName);
-		thisCheck.setUrl(checkUrl);
+		if(!thisCheck.getUrl().equals(checkUrl)){
+			CheckJobManager.newInstance().removeMonitorJob(thisCheck);
+			thisCheck.setUrl(checkUrl);
+			CheckJobManager.newInstance().scheduleMonitorJob(thisCheck);
+		}else{
+			thisCheck.setUrl(checkUrl);
+		}
 		thisCheck.setFrequency(frequencyNum);
 		thisCheck.setTimesLimit(limitNum);
+		thisCheck.getNotifies().clear();
+		for(String notify : notifies){
+			if(notify.length()>0)
+				thisCheck.getNotifies().add(notify.trim());
+		}
 		if (needMonitor != null) {
 			thisCheck.setNeedMonitor(true);
 			CheckJobManager.newInstance().rescheduleMonitorJob(thisCheck);

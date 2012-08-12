@@ -17,12 +17,18 @@ public class AddCheckAction extends ActionSupport {
 		int frequencyNum = Integer.parseInt(frequency);
 		String limit = ((String[]) ActionContext.getContext().getParameters().get("checklimit"))[0];
 		int limitNum = Integer.parseInt(limit);
+		String notifiesStr = ((String[])ActionContext.getContext().getParameters().get("notifies"))[0];
+		String[] notifies = notifiesStr.split(";");
 		Check newCheck = new Check();
 		newCheck.setUser(user);
 		newCheck.setName(checkName);
 		newCheck.setUrl(checkUrl);
 		newCheck.setFrequency(frequencyNum);
 		newCheck.setTimesLimit(limitNum);
+		for(String notify : notifies){
+			if(notify.length()>0)
+				newCheck.getNotifies().add(notify.trim());
+		}
 		CheckDAO.newInstance().saveCheck(newCheck);
 		CheckJobManager.newInstance().scheduleMonitorJob(newCheck);
 		user.getUrlChecks().add(newCheck);
