@@ -15,4 +15,12 @@
 	<servlet-name>webwork</servlet-name>
 	<url-pattern>*.action</url-pattern>
   </servlet-mapping>
+  <servlet>   
+    <servlet-name>JsonDemo</servlet-name>  
+    <servlet-class>org.gyf.servlet.CheckReport</servlet-class>  
+  </servlet>  
+  <servlet-mapping>  
+    <servlet-name>JsonDemo</servlet-name>  
+    <url-pattern>/jsondemo</url-pattern>
+  </servlet-mapping>  
 </web-app>

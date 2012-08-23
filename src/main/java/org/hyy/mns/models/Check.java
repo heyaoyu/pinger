@@ -1,8 +1,7 @@
 package org.hyy.mns.models;
 
-import java.util.HashSet;
+import java.util.LinkedList;
 import java.util.List;
-import java.util.Set;
 
 import org.hyy.mns.daos.RRDAO;
 
@@ -23,12 +22,12 @@ public class Check {
 	private int timesLimit;
 	private boolean notifyWhenUp=true;
 	private boolean needMonitor=true;
-	private Set<String> notifies=new HashSet<String>();
+	private List<String> notifies=new LinkedList<String>();
 	
-	public Set<String> getNotifies() {
+	public List<String> getNotifies() {
 		return notifies;
 	}
-	public void setNotifies(Set<String> notifies) {
+	public void setNotifies(List<String> notifies) {
 		this.notifies = notifies;
 	}
 	public long getCid() {

@@ -26,7 +26,7 @@ public class AddCheckAction extends ActionSupport {
 		newCheck.setFrequency(frequencyNum);
 		newCheck.setTimesLimit(limitNum);
 		for(String notify : notifies){
-			if(notify.length()>0)
+			if(notify.trim().length()>0)
 				newCheck.getNotifies().add(notify.trim());
 		}
 		CheckDAO.newInstance().saveCheck(newCheck);

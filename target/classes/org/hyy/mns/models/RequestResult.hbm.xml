@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "hibernate-mapping-3.0.dtd">
+<!-- "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd" -->
+<hibernate-mapping package="org.hyy.mns.models">
+
+	<class name="RequestResult" table="REQUEST_RESULT">
+		<id name="rrid" column="RR_ID">
+            <generator class="native"/>
+        </id>
+        <many-to-one name="check" column="cId" class="org.hyy.mns.models.Check"/>
+        <property name="status" type="java.lang.Integer"/>
+        <property name="statusCode"/>
+        <property name="ts" type="java.util.Date"/>
+        <property name="success" type="java.lang.Boolean"/>
+		<property name="responseTime" type="java.lang.Integer"/>                
+		<property name="failedTimes" type="java.lang.Integer"/>
+	</class>
+
+</hibernate-mapping>

@@ -37,7 +37,7 @@ public class EditCheckAction extends ActionSupport {
 		thisCheck.setTimesLimit(limitNum);
 		thisCheck.getNotifies().clear();
 		for(String notify : notifies){
-			if(notify.length()>0)
+			if(notify.trim().length()>0)
 				thisCheck.getNotifies().add(notify.trim());
 		}
 		if (needMonitor != null) {
