@@ -1,5 +1,7 @@
 $(document).mousemove(onMouseMove);
 function getRes(ref) {
+	window.scrollTo(0,0);
+	$("#main").css("overflow","hidden");
 	$.getJSON("/pinger/jsondemo", {
 		id : ref
 	}, function(ref) {
@@ -74,7 +76,7 @@ function getJson(ref) {
 	dataArray = new Array();
 	// $.getJSON("/pinger/jsondemo", null, function(ref) {
 	$.each(ref, function(i) {
-		var height = ref[i].value / 4000 * chart_y_length;
+		var height = ref[i].value / 5000 * chart_y_length;
 		var data = new Data(ref[i].date, ref[i].value, height);
 		dataArray[i] = data;
 	});
@@ -95,7 +97,7 @@ function initChart() {
 						+ chart_x_length, chart_origin_y - chart_row_per_length
 						* i);
 		drawText(chart_text_color, chart_text_width, chart_origin_x - 25,
-				chart_origin_y - chart_row_per_length * i - 5, 800 * i);
+				chart_origin_y - chart_row_per_length * i - 5, 1000 * i);
 	}
 	// draw y-axis element
 	for ( var j = 0; j < chart_column; j++) {

@@ -7,6 +7,7 @@
 		<link rel="stylesheet" type="text/css" href="css/basic.css" />
 	</head>
 	<body id="main">
+
 		#set ($user=$req.getSession().getAttribute("LOGINUSER"))
 		<div id="header">
 			<div id="logo">
@@ -42,7 +43,7 @@
 					<h2>Checks Report</h2>
 				</div>
 				#foreach($check in $user.urlChecks)
-				<div id="checkDetail" class="checkInfo" onClick="getRes($check.cid)">
+				<div id="checkDetail" class="checkInfo">
 					<div class="colOne">
 						<p><strong>Check</strong></p>
 						<p><strong>Host</strong></p>
@@ -61,6 +62,9 @@
 					</div>
 					<div class="colFive">
 						<a href="showCheck.action?cid=$check.cid">>>>Edit</a>
+						<br>
+						<br>
+						<a href="#" onClick="getRes($check.cid)">>>>Report</a>
 					</div>
 					<div class="tableDetail">
 						<table>
@@ -97,8 +101,8 @@
 			<p>yunfeng,guo@thomsonreuters.com</p>
 		</div>
 		<div id="backButton" class="addC"><a href="home.action">Close</a></div>
-		<div id="fade" class="overlay"></div>
 		<div class="pop-box" id="pop">success</div>
     	<canvas id="tutorial" width="600" height="330"></canvas>
+    	<div id="fade" class="overlay"></div>
 	</body>
 </html>
